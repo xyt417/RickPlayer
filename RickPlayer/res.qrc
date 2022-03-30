@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>resources/icons/play.png</file>
+        <file>resources/icons/pause.png</file>
+        <file>resources/icons/nextsong.png</file>
+        <file>resources/icons/prevsong.png</file>
+        <file>resources/icons/minimize.png</file>
+        <file>resources/icons/maximize.png</file>
+        <file>resources/icons/close.png</file>
+        <file>resources/icons/add.png</file>
+        <file>resources/icons/add_hover.png</file>
+        <file>resources/icons/rick.png</file>
+    </qresource>
+    <qresource prefix="/image">
+        <file>resources/images/1.png</file>
+    </qresource>
+    <qresource prefix="/stylesheet">
+        <file>topStyle.qss</file>
+    </qresource>
+</RCC>

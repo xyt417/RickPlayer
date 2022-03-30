@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "qapplication": "cpp",
+        "qmainwindow": "cpp",
+        "limits": "cpp",
+        "type_traits": "cpp",
+        "qlistwidget": "cpp",
+        "qfileinfo": "cpp",
+        "chrono": "cpp",
+        "numeric": "cpp",
+        "fstream": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "system_error": "cpp",
+        "typeinfo": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp",
+        "new": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
