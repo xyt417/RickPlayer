@@ -16,42 +16,44 @@ MusicList::MusicList(QWidget *parent_base, Player *parent):QListWidget(parent_ba
 
 void MusicList::addMusicItem(QString filepath)
 {
-    QFileInfo info(filepath);
-    SongItem data;
-    data.filePath=info.absoluteFilePath();
-    data.name=info.completeBaseName();
-    QVariant vdata;
-    vdata.setValue(data);
-    QListWidgetItem *item=new QListWidgetItem;
-    item->setText(data.name);
-    item->setData(Qt::UserRole, vdata);
-    item->setSizeHint(QSize(50, 30));
-    item->setTextAlignment(Qt::AlignCenter);
-    QFont font;
-    font.setPointSize(10);
-    font.setFamily("幼圆");
-    item->setFont(font);
-    this->addItem(item);
-    rowNum++;
+        QFileInfo info(filepath);
+        SongItem data;
+        data.filePath=info.absoluteFilePath();
+        data.name=info.completeBaseName();
+        QVariant vdata;
+        vdata.setValue(data);
+        QListWidgetItem *item=new QListWidgetItem;
+        item->setText(data.name);
+        item->setData(Qt::UserRole, vdata);
+        item->setSizeHint(QSize(50, 30));
+        item->setTextAlignment(Qt::AlignCenter);
+        QFont font;
+        font.setPointSize(10);
+        font.setFamily("幼圆");
+        item->setFont(font);
+        this->addItem(item);
+        rowNum++;
+    
 }
 
 void MusicList::newMusicItem()
 {
     QString filepath=QFileDialog::getOpenFileName(this, "添加emo", ".", "Music(*.mp3)");
-    addMusicItem(filepath);
-
-    QFile fromMusicFile(filepath);
-    fromMusicFile.open(QIODevice::ReadOnly);
-    QFileInfo fromFileInfo(filepath);
-    QByteArray musicData;
-    musicData=fromMusicFile.readAll();
-    QDir musicLib(qApp->applicationDirPath());
-    musicLib.mkdir("RickLib");
-    QFile toMusicFile(qApp->applicationDirPath()+"/RickLib/"+fromFileInfo.fileName());
-    toMusicFile.open(QIODevice::WriteOnly);
-    toMusicFile.write(musicData);
-    fromMusicFile.close();
-    toMusicFile.close();
+    if(!filepath.isEmpty()){
+        addMusicItem(filepath);
+        QFile fromMusicFile(filepath);
+        fromMusicFile.open(QIODevice::ReadOnly);
+        QFileInfo fromFileInfo(filepath);
+        QByteArray musicData;
+        musicData=fromMusicFile.readAll();
+        QDir musicLib(qApp->applicationDirPath());
+        musicLib.mkdir("RickLib");
+        QFile toMusicFile(qApp->applicationDirPath()+"/RickLib/"+fromFileInfo.fileName());
+        toMusicFile.open(QIODevice::WriteOnly);
+        toMusicFile.write(musicData);
+        fromMusicFile.close();
+        toMusicFile.close();
+    }
 }
 
 void MusicList::loadLib()
