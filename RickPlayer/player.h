@@ -23,7 +23,7 @@ protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
-    QPoint mousePoint;
+    QPoint mousePoint=QPoint(1000,1000);
 private:
     Ui::Player *ui;
     QMediaPlayer *player;
